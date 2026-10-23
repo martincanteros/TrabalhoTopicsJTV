@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodDinner — GulosoAgent, seu assistente de marmitas</title>
+  <meta name="description" content="GulosoAgent é o assistente da FoodDinner: escolha o cardápio, avise restrições, pause entregas e ajuste tudo pelo chat." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Barra lateral -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>Food Dinner</h1>
+          <p>Marmitas com carinho, todo dia</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="section-label">Como está sua fome hoje?</p>
+        <div class="moods">
+          <button class="mood" data-mood="faminto">😋<span>Faminto</span></button>
+          <button class="mood" data-mood="com-fome">🙂<span>Com fome</span></button>
+          <button class="mood" data-mood="mais-ou-menos">😐<span>Mais ou menos</span></button>
+          <button class="mood" data-mood="de-boa">😌<span>De boa</span></button>
+        </div>
+      </div>
+
+      <div class="breath">
+        <p class="section-label">Prato do dia</p>
+        <div class="breath-circle" id="dishCircle">🍛</div>
+        <button id="dishBtn">Me surpreenda</button>
+      </div>
+    </aside>
+
+    <!-- Chat -->
+    <main class="chat">
+      <header class="chat-header">
+        <div class="header-left">
+          <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+          <div>
+            <h2>Converse com o GulosoAgent</h2>
+            <span class="status">Pronto para anotar seu pedido</span>
+          </div>
+        </div>
+        <button class="new-chat" id="newChat">Novo pedido</button>
+      </header>
+
+      <section class="messages" id="messages">
+        <div class="welcome" id="welcome">
+          <h3>Olá. Que bom te ver,<br><em>que fome é hoje?</em></h3>
+          <p>Escolha seu cardápio, avise restrições ou pause entregas. Sem complicação.</p>
+          <div class="suggestions">
+            <button class="suggestion">🥗 Escolher cardápio</button>
+            <button class="suggestion">⚠️ Avisar restrição</button>
+          </div>
+        </div>
+
+        <div class="msg bot">
+          <div class="avatar"></div>
+          <div class="bubble">Olá, Usuario! 👋 Sou o GulosoAgent, seu assistente da FoodDinner. Como posso te ajudar hoje?
+            <span class="time">09:00</span>
+          </div>
+        </div>
+
+        <div class="msg user">
+          <div class="bubble">Quero escolher o cardápio da semana
+            <span class="time">09:01</span>
+          </div>
+        </div>
+
+        <div class="msg typing" id="typing">
+          <div class="avatar"></div>
+          <div class="bubble"><span></span><span></span><span></span></div>
+        </div>
+      </section>
+
+      <footer class="composer">
+        <form id="form">
+          <textarea id="input" rows="1" placeholder="Escreva seu pedido..."></textarea>
+          <button class="send" id="send" type="submit" aria-label="Enviar" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p class="disclaimer">O GulosoAgent cuida do cardápio, das restrições alimentares e das pausas de entrega da FoodDinner.</p>
+      </footer>
+    <script src="script.js"></script>
+</html>
