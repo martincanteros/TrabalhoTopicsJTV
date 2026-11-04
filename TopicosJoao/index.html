@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Info31 — seu espaço de autoajuda</title>
-  <meta name="description" content="Lume é um chatbot de autoajuda para conversar sobre ansiedade, estresse, sono e bem-estar." />
+  <title>FoodDinner — GulosoAgent, seu assistente de marmitas</title>
+  <meta name="description" content="GulosoAgent é o assistente da FoodDinner: escolha o cardápio, avise restrições, pause entregas e ajuste tudo pelo chat." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Fraunces:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
@@ -18,26 +18,25 @@
       <div class="brand">
         <div class="brand-mark"></div>
         <div>
-          <h1>Info31</h1>
-          <p>Um espaço seguro para você</p>
+          <h1>Food Dinner</h1>
+          <p>Marmitas com carinho, todo dia</p>
         </div>
       </div>
 
       <div>
-        <p class="section-label">Como você está hoje?</p>
+        <p class="section-label">Como está sua fome hoje?</p>
         <div class="moods">
-          <button class="mood" data-mood="ótimo">😄<span>Ótimo</span></button>
-          <button class="mood" data-mood="bem">🙂<span>Bem</span></button>
-          <button class="mood" data-mood="neutro">😐<span>Neutro</span></button>
-          <button class="mood" data-mood="triste">😔<span>Triste</span></button>
-          <button class="mood" data-mood="ansioso">😣<span>Ansioso</span></button>
+          <button class="mood" data-mood="faminto">😋<span>Faminto</span></button>
+          <button class="mood" data-mood="com-fome">🙂<span>Com fome</span></button>
+          <button class="mood" data-mood="mais-ou-menos">😐<span>Mais ou menos</span></button>
+          <button class="mood" data-mood="de-boa">😌<span>De boa</span></button>
         </div>
       </div>
 
       <div class="breath">
-        <p class="section-label">Pausa para respirar</p>
-        <div class="breath-circle" id="breathCircle">Pronto?</div>
-        <button id="breathBtn">Começar</button>
+        <p class="section-label">Prato do dia</p>
+        <div class="breath-circle" id="dishCircle">🍛</div>
+        <button id="dishBtn">Me surpreenda</button>
       </div>
     </aside>
 
@@ -47,32 +46,36 @@
         <div class="header-left">
           <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
           <div>
-            <h2>Conversa com a Info31</h2>
-            <span class="status">Disponível para ouvir</span>
+            <h2>Converse com o GulosoAgent</h2>
+            <span class="status">Pronto para anotar seu pedido</span>
           </div>
         </div>
-        <button class="new-chat" id="newChat">Nova conversa</button>
+        <button class="new-chat" id="newChat">Novo pedido</button>
       </header>
 
-      <section class="messages" id="messages">
+      <section class="messages" id="messages" aria-live="polite">
         <div class="welcome" id="welcome">
-          <h3>Olá. Respire fundo,<br><em>você está aqui.</em></h3>
-          <p>Conte como está se sentindo. Sem julgamentos, no seu tempo.</p>
+          <h3>Olá. Que bom te ver,<br><em>que fome é hoje?</em></h3>
+          <p>Escolha seu cardápio, avise restrições ou pause entregas. Sem complicação.</p>
+          <div class="suggestions">
+            <button class="suggestion">🥗 Escolher cardápio</button>
+            <button class="suggestion">⚠️ Avisar restrição</button>
+          </div>
         </div>
+
       </section>
 
       <footer class="composer">
         <form id="form">
-          <textarea id="input" rows="1" placeholder="Escreva o que está sentindo..."></textarea>
+          <textarea id="input" rows="1" placeholder="Escreva seu pedido..." aria-label="Escreva sua mensagem"></textarea>
           <button class="send" id="send" type="submit" aria-label="Enviar" disabled>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </form>
-        <p class="disclaimer">Lume oferece apoio emocional e não substitui acompanhamento profissional.</p>
+        <p class="disclaimer">O GulosoAgent cuida do cardápio, das restrições alimentares e das pausas de entrega da FoodDinner.</p>
       </footer>
     </main>
   </div>
-
-  
+  <script src="script.js"></script>
 </body>
 </html>

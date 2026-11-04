@@ -1,20 +1,22 @@
 /* ==========================================================
-   Lume — chatbot de autoajuda
+   FoodDinner — GulosoAgent
+   Tema quente: creme, tomate e verde-folha
    ========================================================== */
 
 :root {
-  --bg: #0b0b0b;
-  --bg-deep: #050505;
-  --surface: #121212;
-  --ink: #ededed;
-  --ink-soft: #9a9a9a;
-  --ink-faint: #5e5e5e;
-  --sage: #d9d9d9;
-  --sage-deep: #f2f2f2;
-  --sage-light: #1c1c1c;
-  --clay: #e8e8e8;
-  --clay-light: #1f1f1f;
-  --line: #222222;
+  --bg: oklch(0.93 0.03 90);
+  --bg-deep: oklch(0.9 0.035 90);
+  --surface: oklch(0.985 0.012 90);
+  --ink: oklch(0.25 0.04 40);
+  --ink-soft: oklch(0.45 0.04 50);
+  --ink-faint: oklch(0.6 0.04 60);
+  --tomato: oklch(0.63 0.19 35);
+  --tomato-light: oklch(0.72 0.16 40);
+  --sage-light: oklch(0.95 0.03 90);
+  --cream: oklch(0.97 0.02 85);
+  --leaf: oklch(0.55 0.12 150);
+  --clay: oklch(0.63 0.19 35);
+  --line: oklch(0.88 0.025 85);
   --radius: 14px;
   --shadow: none;
   --font-display: "Fraunces", Georgia, serif;
@@ -34,6 +36,15 @@ body {
 }
 
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
 
 /* ---------- Layout ---------- */
 .app {
@@ -63,12 +74,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .brand-mark {
   width: 12px; height: 12px;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--tomato);
 }
 
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 0 6px var(--clay-light); }
-  50% { box-shadow: 0 0 0 11px rgba(243, 223, 211, 0.6); }
+  0%, 100% { box-shadow: 0 0 0 6px oklch(0.9 0.06 45); }
+  50% { box-shadow: 0 0 0 11px oklch(0.9 0.06 45 / 60%); }
 }
 
 .brand h1 {
@@ -80,9 +91,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .brand p { font-size: 0.82rem; color: var(--ink-soft); }
 
-
-
-/* Humor */
+/* Fome do dia */
 .moods { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
 
 .mood {
@@ -99,7 +108,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .mood:hover { background: var(--bg); transform: translateY(-2px); }
 .mood.active { background: var(--sage-light); }
 
-/* Respiração */
+/* Prato do dia */
 .breath {
   background: var(--sage-light);
   border-radius: 18px;
@@ -113,50 +122,23 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: transparent;
-  border: 1px solid var(--ink-soft);
-  color: var(--ink);
-  font-weight: 400;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  transform: scale(0.75);
-  transition: transform 4s ease-in-out;
+  background: var(--surface);
+  border: 1px solid var(--tomato);
+  font-size: 2.4rem;
+  transform: scale(0.85);
+  transition: transform 1.5s ease-in-out;
 }
-.breath-circle.grow { transform: scale(1); }
+.breath-circle.grow { transform: scale(1.08); }
 
 .breath button {
   padding: 8px 18px;
   border-radius: 999px;
-  background: var(--sage-deep);
-  color: var(--surface);
+  background: var(--tomato);
+  color: var(--cream);
   font-size: 0.85rem;
   transition: opacity 0.2s;
 }
 .breath button:hover { opacity: 0.88; }
-
-/* Tópicos */
-.topics { display: flex; flex-direction: column; gap: 6px; }
-
-.topic {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  text-align: left;
-  color: var(--ink-soft);
-  transition: background 0.2s, color 0.2s;
-}
-.topic:hover { background: var(--bg); color: var(--ink); }
-.topic i {
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--clay);
-  flex-shrink: 0;
-}
-.topic i { background: var(--ink-faint); }
-
 
 /* ---------- Chat ---------- */
 .chat {
@@ -188,7 +170,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   content: "";
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--sage);
+  background: var(--leaf);
   box-shadow: 0 0 0 4px var(--sage-light);
 }
 
@@ -200,7 +182,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--ink-soft);
   transition: border-color 0.2s, color 0.2s;
 }
-.new-chat:hover { border-color: var(--sage); color: var(--sage-deep); }
+.new-chat:hover { border-color: var(--tomato); color: var(--tomato); }
 
 .messages {
   flex: 1;
@@ -222,7 +204,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   letter-spacing: -0.02em;
   margin-bottom: 12px;
 }
-.welcome h3 em { font-style: italic; color: var(--ink-soft); }
+.welcome h3 em { font-style: italic; color: var(--tomato); }
 .welcome p { color: var(--ink-soft); }
 
 .suggestions {
@@ -242,7 +224,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   color: var(--ink);
   transition: background 0.2s, border-color 0.2s;
 }
-.suggestion:hover { border-color: var(--ink-soft); }
+.suggestion:hover { border-color: var(--tomato); }
 
 /* Mensagens */
 .msg {
@@ -261,7 +243,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   width: 10px; height: 10px; margin-top: 18px;
   border-radius: 50%;
   flex-shrink: 0;
-  background: var(--ink);
+  background: var(--tomato);
 }
 
 .msg .bubble {
@@ -274,6 +256,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   background: var(--bg);
   border-top-left-radius: 6px;
 }
+.msg.error .bubble {
+  border: 1px solid var(--tomato-light);
+}
 
 .msg.user {
   align-self: flex-end;
@@ -282,7 +267,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .msg.user .avatar { display: none; }
 .msg.user .bubble {
   background: var(--ink);
-  color: var(--bg);
+  color: var(--cream);
   border-top-right-radius: 6px;
 }
 
@@ -293,7 +278,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .typing .bubble span {
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--ink-faint);
+  background: var(--tomato);
   animation: bounce 1.2s infinite;
 }
 .typing .bubble span:nth-child(2) { animation-delay: 0.15s; }
@@ -318,7 +303,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .composer form:focus-within {
-  border-color: var(--sage);
+  border-color: var(--tomato);
   box-shadow: none;
 }
 
@@ -342,7 +327,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   display: grid;
   place-items: center;
   background: var(--clay);
-  color: var(--surface);
+  color: var(--cream);
   transition: transform 0.2s, opacity 0.2s;
 }
 .send:hover { transform: scale(1.06); }
