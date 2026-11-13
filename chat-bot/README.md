@@ -6,7 +6,7 @@ npm # `create-preact`
 
 <h3 align="center">Siga esses comandos aqui pra funcionar professor!</h3>
 
-## Getting Started
+## Para começar
 
 -   `npm install` - 
 
