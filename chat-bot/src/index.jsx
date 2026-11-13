@@ -46,7 +46,12 @@ export function App() {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ messages: pendingHistory }),
 			});
-			const data = await response.json();
+			let data;
+			try {
+				data = await response.json();
+			} catch {
+				throw new Error('Key estava muito cara professor....');
+			}
 
 			if (!response.ok) {
 				throw new Error(data.error || `A solicitação falhou (HTTP ${response.status}).`);
